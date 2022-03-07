@@ -1,4 +1,5 @@
 import { useQuery } from "react-apollo";
+import Tiles from "../components/Tiles";
 import { COUNTRIES, ICountries } from "../graphql/graphqls";
 
 const Home = () => {
@@ -7,8 +8,7 @@ const Home = () => {
   return (
     <div>
       <h1 className="text-2xl font-bold">Home</h1>
-      {data?.countries.map((el)=><p key={el.code}>{el.code}</p>)
-      }
+      <Tiles countries={data?.countries || []}/>
     </div>
   );
 };
