@@ -1,4 +1,4 @@
-import { ICountries } from "../graphql/graphqls";
+import { ICountries } from "./../../graphql/graphqls";
 import Tile from "./Tile";
 
 const Tiles: React.FC<ICountries> = ({ countries }) => {

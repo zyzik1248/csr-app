@@ -1,5 +1,5 @@
 import { useQuery } from "react-apollo";
-import Tiles from "../components/Tiles";
+import Tiles from "../components/countries/Tiles";
 import { COUNTRIES, ICountries } from "../graphql/graphqls";
 
 const Home = () => {
