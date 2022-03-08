@@ -1,13 +1,14 @@
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import RouterApp from "./routers/RouterApp";
 import { ApolloProvider } from "react-apollo";
-import { client } from "./graphql";
 import { GoMarkGithub } from "react-icons/go";
+
+import { client } from "./graphql";
 
 function App() {
   return (
     <ApolloProvider client={client}>
-      <BrowserRouter>
+      <HashRouter basename={"/"}>
         <RouterApp />
         <a
           className="fixed bottom-6 left-6"
@@ -17,7 +18,7 @@ function App() {
         >
           <GoMarkGithub className="text-4xl" />
         </a>
-      </BrowserRouter>
+      </HashRouter>
     </ApolloProvider>
   );
 }
