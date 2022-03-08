@@ -18,7 +18,7 @@ const ContinentSelect: React.FC<Props> = ({setContinent}) => {
   };
   return (
     <Select
-      className="flex-1"
+      className="flex-1 min-w-[250px]"
       isClearable={true}
       options={
         data?.continents.map((el) => {

@@ -13,7 +13,7 @@ const NameSearcher: React.FC<Props> = ({ setName }) => {
 
   return (
     <input
-      className="flex-1 p-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-2 focus:border-blue-500"
+      className="flex-1 min-w-[250px] p-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-2 focus:border-blue-500"
       type="search"
       onChange={debonceChange}
     />
