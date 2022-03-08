@@ -1,16 +1,25 @@
 import gql from "graphql-tag";
 
 export const COUNTRIES = gql`
-  query GetCountries {
-    countries {
+  query GetCountries($continent: String!) {
+    countries(filter: { continent: { regex: $continent} }) {
       name
       code
     }
   }
 `;
 
-export interface ICountries {
-  countries: { name: string; code: string }[];
+interface Country {
+  name: string
+  code: string
+}
+
+export interface CountriesData {
+  countries: Country[];
+}
+
+export interface CountriesVar {
+  continent: string
 }
 
 export const COUNTRY = gql`
@@ -26,11 +35,37 @@ export const COUNTRY = gql`
   }
 `;
 
-export interface ICountry {
+interface Language {
+  name: string;
+}
+
+export interface CountryData {
   country: {
     name: string;
     code: string;
     emoji: string;
-    languages: { name: string }[];
+    languages: Language[];
   };
+}
+
+export interface CountryVar {
+  code: string;
+}
+
+export const CONTINENTS = gql`
+  query GetContinents {
+    continents {
+      code
+      name
+    }
+  }
+`;
+
+interface Continent {
+  code: string;
+  name: string;
+}
+
+export interface ContinentsData {
+  continents: Continent[];
 }

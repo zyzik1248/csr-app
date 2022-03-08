@@ -1,14 +1,19 @@
+import { useState } from "react";
 import { useQuery } from "react-apollo";
 import Tiles from "../components/countries/Tiles";
-import { COUNTRIES, ICountries } from "../graphql/graphqls";
+import Filters from "../components/filters/Filters";
+import { COUNTRIES, CountriesData, CountriesVar } from "../graphql/graphqls";
 
 const Home = () => {
-  const { data } = useQuery<ICountries>(COUNTRIES);
+  const [continent, setContinent] = useState("");
+  const { data } = useQuery<CountriesData, CountriesVar>(COUNTRIES, {variables: {continent}});
 
   return (
     <div>
-      <h1 className="text-2xl font-bold">Home</h1>
-      <Tiles countries={data?.countries || []}/>
+      <Filters setContinent={setContinent}/>
+      <div className="pt-[80px]">
+        <Tiles countries={data?.countries || []} />
+      </div>
     </div>
   );
 };
