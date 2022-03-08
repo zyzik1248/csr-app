@@ -3,7 +3,7 @@ import Tile from "./Tile";
 
 const Tiles: React.FC<CountriesData> = ({ countries }) => {
   return (
-    <div className="flex justify-center items-center flex-col">
+    <div className="flex justify-center items-center flex-col mx-2">
       {countries.length > 0 ? (
         countries.map((el) => (
           <Tile key={el.code} code={el.code} name={el.name} />

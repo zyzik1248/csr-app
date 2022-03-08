@@ -18,7 +18,7 @@ const CountryInfo: React.FC<Props> = ({ name, code, emoij, languagesName }) => {
         <div className="text-gray-600">
           <p>{code}</p>
           <p>{emoij}</p>
-          <div className="flex gap-1">
+          <div className="flex gap-1 flex-wrap">
             {languagesName.map((el, index) => (
               <p key={el.name} className="text-gray-600">
                 {el.name}

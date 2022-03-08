@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div>
       <Filters setContinent={setContinent} setName={setName} />
-      <div className="pt-[80px]">
+      <div className="pt-[100px]">
         <Tiles
           countries={data?.countries.filter((el) => el.name.match(name)) || []}
         />
