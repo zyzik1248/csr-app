@@ -12,9 +12,11 @@
     "@types/react-dom": "^17.0.13",
     "apollo-boost": "^0.4.9",
     "graphql": "^15.8.0",
+    "lodash.debounce": "^4.0.8",
     "react": "^17.0.2",
     "react-apollo": "^3.1.5",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
     "react-select": "^5.2.2",
@@ -46,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "@types/lodash.debounce": "^4.0.6",
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.8",
     "tailwindcss": "^3.0.23"

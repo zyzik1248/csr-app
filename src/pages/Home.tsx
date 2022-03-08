@@ -6,13 +6,18 @@ import { COUNTRIES, CountriesData, CountriesVar } from "../graphql/graphqls";
 
 const Home = () => {
   const [continent, setContinent] = useState("");
-  const { data } = useQuery<CountriesData, CountriesVar>(COUNTRIES, {variables: {continent}});
+  const [name, setName] = useState("");
+  const { data } = useQuery<CountriesData, CountriesVar>(COUNTRIES, {
+    variables: { continent },
+  });
 
   return (
     <div>
-      <Filters setContinent={setContinent}/>
+      <Filters setContinent={setContinent} setName={setName} />
       <div className="pt-[80px]">
-        <Tiles countries={data?.countries || []} />
+        <Tiles
+          countries={data?.countries.filter((el) => el.name.match(name)) || []}
+        />
       </div>
     </div>
   );
