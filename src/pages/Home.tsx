@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "react-apollo";
+
 import Tiles from "../components/countries/Tiles";
 import Filters from "../components/filters/Filters";
 import { COUNTRIES, CountriesData, CountriesVar } from "../graphql/graphqls";

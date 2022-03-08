@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 
 export const COUNTRIES = gql`
   query GetCountries($continent: String!) {
-    countries(filter: { continent: { regex: $continent} }) {
+    countries(filter: { continent: { regex: $continent } }) {
       name
       code
     }
@@ -10,8 +10,8 @@ export const COUNTRIES = gql`
 `;
 
 interface Country {
-  name: string
-  code: string
+  name: string;
+  code: string;
 }
 
 export interface CountriesData {
@@ -19,7 +19,7 @@ export interface CountriesData {
 }
 
 export interface CountriesVar {
-  continent: string
+  continent: string;
 }
 
 export const COUNTRY = gql`

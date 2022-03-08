@@ -1,5 +1,6 @@
 import { useQuery } from "react-apollo";
 import { useParams } from "react-router-dom";
+
 import CountryInfo from "../components/country/CountryInfo";
 import { COUNTRY, CountryData, CountryVar } from "../graphql/graphqls";
 
@@ -10,7 +11,7 @@ const Country = () => {
   });
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center mt-8">
       {data?.country && (
         <CountryInfo
           code={data.country.code}

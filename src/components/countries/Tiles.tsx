@@ -4,9 +4,13 @@ import Tile from "./Tile";
 const Tiles: React.FC<CountriesData> = ({ countries }) => {
   return (
     <div className="flex justify-center items-center flex-col">
-      {countries.map((el) => (
-        <Tile key={el.code} code={el.code} name={el.name} />
-      ))}
+      {countries.length > 0 ? (
+        countries.map((el) => (
+          <Tile key={el.code} code={el.code} name={el.name} />
+        ))
+      ) : (
+        <p className="text-gray-600 text-lg">no results</p>
+      )}
     </div>
   );
 };

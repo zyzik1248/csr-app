@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useQuery } from "react-apollo";
 import Select from "react-select";
+
 import { CONTINENTS, ContinentsData } from "../../graphql/graphqls";
 
 interface Props{
   setContinent: (continent: string) => void
 }
-
 
 const ContinentSelect: React.FC<Props> = ({setContinent}) => {
   const { data } = useQuery<ContinentsData>(CONTINENTS);
