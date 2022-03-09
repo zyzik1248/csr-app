@@ -8,7 +8,7 @@ import { COUNTRIES, CountriesData, CountriesVar } from "../graphql/graphqls";
 const Home = () => {
   const [continent, setContinent] = useState("");
   const [name, setName] = useState("");
-  const { data } = useQuery<CountriesData, CountriesVar>(COUNTRIES, {
+  const { data, loading } = useQuery<CountriesData, CountriesVar>(COUNTRIES, {
     variables: { continent },
   });
 
@@ -17,7 +17,8 @@ const Home = () => {
       <Filters setContinent={setContinent} setName={setName} />
       <div className="pt-[100px]">
         <Tiles
-          countries={
+          loading={loading}
+          data={
             data?.countries.filter((el) =>
               el.name.toLowerCase().match(name.toLowerCase())
             ) || []

@@ -1,4 +1,5 @@
 import { useQuery } from "react-apollo";
+import { BallTriangle } from "react-loader-spinner";
 import { Navigate, useParams } from "react-router-dom";
 
 import CountryInfo from "../components/country/CountryInfo";
@@ -12,16 +13,16 @@ const Country = () => {
 
   return (
     <div className="flex justify-center items-center mt-8">
-      {!loading && !data?.country && (
-        <Navigate to="/404" />
-      )}
-      {!loading && data?.country && (
+      {!loading && !data?.country && <Navigate to="/404" />}
+      {!loading && data?.country ? (
         <CountryInfo
           code={data.country.code}
           emoij={data.country.emoji}
           languagesName={[...data.country.languages]}
           name={data.country.name}
         />
+      ) : (
+        <BallTriangle color="orange" />
       )}
     </div>
   );

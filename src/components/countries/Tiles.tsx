@@ -1,15 +1,27 @@
-import { CountriesData } from "./../../graphql/graphqls";
+import { BallTriangle } from "react-loader-spinner";
+import { Country } from "./../../graphql/graphqls";
 import Tile from "./Tile";
 
-const Tiles: React.FC<CountriesData> = ({ countries }) => {
+interface Props {
+  data: Country[];
+  loading?: boolean;
+}
+
+const Tiles: React.FC<Props> = ({ data, loading }) => {
   return (
     <div className="flex justify-center items-center flex-col mx-2">
-      {countries.length > 0 ? (
-        countries.map((el) => (
+      {data.length > 0 ? (
+        data.map((el) => (
           <Tile key={el.code} code={el.code} name={el.name} />
         ))
       ) : (
-        <p className="text-gray-600 text-lg">no results</p>
+        <>
+          {!loading ? (
+            <p className="text-gray-600 text-lg">no results</p>
+          ) : (
+            <BallTriangle color="orange"/>
+          )}
+        </>
       )}
     </div>
   );

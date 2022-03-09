@@ -9,7 +9,7 @@ export const COUNTRIES = gql`
   }
 `;
 
-interface Country {
+export interface Country {
   name: string;
   code: string;
 }
